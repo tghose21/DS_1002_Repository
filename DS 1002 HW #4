@@ -1,0 +1,106 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPL5Fo8vUycYjpgOaTKV+J7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tghose21/DS_1002_Repository/blob/main/DS%201002%20HW%20%234\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "z-EZa6yRtZNR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# The majority of the game took me 20ish minutes\n",
+        "# Figuring out how to correct if the user inputted the wrong variable type took me over an additional hour and a half\n",
+        "# Make random computer variable between 0 and 100\n",
+        "import numpy as np\n",
+        "compVar = np.random.randint(0,100, size=1)\n",
+        "\n",
+        "# Test out the variable\n",
+        "print(compVar)\n",
+        "\n",
+        "# Set guessVar to 0\n",
+        "guessVar = 0\n",
+        "\n",
+        "# While loop so the game goes on until the user guesses correct number\n",
+        "while True:\n",
+        "  # Continuously prompt the user for input until they enter a valid integer\n",
+        "  while True:\n",
+        "    # If the user guesses something that is not an integer they will receive an error\n",
+        "    # If the user inputs an integer the code will break out of the second while true loop and execute below\n",
+        "    try:\n",
+        "      userVar = int(input(\"Please guess an integer between 0 and 100: \"))\n",
+        "      break\n",
+        "    except ValueError:\n",
+        "      print(\"Invalid input. Please enter a valid integer.\")\n",
+        "  # Check if the user guess is out of bounds\n",
+        "  if userVar < 0 or userVar > 100:\n",
+        "    print(\"Your guess must be between 0 and 100! \")\n",
+        "  else:\n",
+        "    # Increments guessVar by 1 to keep track of valid guesses\n",
+        "    guessVar += 1\n",
+        "    # Check if the user input is equal to the computer variable\n",
+        "    if userVar == compVar:\n",
+        "        print(\"You guessed the correct number! It took you this number of attempts: \" + str(guessVar) + \"!\")\n",
+        "        break\n",
+        "    # Check if user input is greater than the computer variable\n",
+        "    elif userVar > compVar:\n",
+        "        print(\"Too high! \")\n",
+        "    # All other guesses will be less than\n",
+        "    else:\n",
+        "        print(\"Too low! \")"
+      ],
+      "metadata": {
+        "id": "5mWvcycyBbx4",
+        "outputId": "ec9129fe-5352-4a5d-fa9b-c1e92d6afd18",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[14]\n",
+            "Please guess an integer between 0 and 100: 99\n",
+            "Too high! \n",
+            "Please guess an integer between 0 and 100: 900\n",
+            "Your guess must be between 0 and 100! \n",
+            "Please guess an integer between 0 and 100: 10\n",
+            "Too low! \n",
+            "Please guess an integer between 0 and 100: 14\n",
+            "You guessed the correct number! It took you this number of attempts: 3!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
